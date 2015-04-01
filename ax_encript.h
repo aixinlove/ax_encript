@@ -9,23 +9,17 @@
 #ifndef __SFBox__ax_encript__
 #define __SFBox__ax_encript__
 
-#include <stdio.h>
-
-typedef struct{
-    char head;
-    char data[128];
-} ax_encript_block_t;
-typedef ax_encript_block_t* ax_encript_block_p;
-typedef enum{
-    ax_encript_type_enc,
-    ax_encript_type_dec
-} ax_encript_type_t;
-
-typedef void ax_encript_exec(ax_encript_block_p inblock,ax_encript_block_p outblock,ax_encript_type_t type);
-
-typedef enum{
-    ax_encript_func_xor
-} ax_encript_func_t;
-
-void ax_encript(ax_encript_block_p inblock,ax_encript_block_p outbock,ax_encript_type_t type,ax_encript_func_t func);
+	#include <stdio.h>
+	typedef enum{
+	    ax_encript_type_enc,
+	    ax_encript_type_dec
+	} ax_encript_type_t;
+	typedef enum{
+	    ax_encript_func_xor=0x0001,
+		ax_encript_func_tea=0x0002,
+		ax_encript_func_xtea=0x0003,
+		ax_encript_func_xxtea=0x0004,
+		ax_encript_func_rc4=0x0005,
+	} ax_encript_func_t;
+	void ax_encript_stream(char *indata,int inlen,char *outdata,int outlen,ax_encript_type_t type,ax_encript_func_t func, void* ud);
 #endif /* defined(__SFBox__ax_encript__) */
