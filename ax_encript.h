@@ -10,6 +10,7 @@
 #define __SFBox__ax_encript__
 
 #include <stdio.h>
+#include <stdint.h>
 typedef enum{
     ax_encript_type_enc,
     ax_encript_type_dec
@@ -21,6 +22,7 @@ typedef enum{
 	ax_encript_func_xxtea=0x0004,
 	ax_encript_func_rc4=0x0005,
 } ax_encript_func_t;
-void ax_encript_stream(char *indata,int inlen,char *outdata,int outlen,ax_encript_type_t type,ax_encript_func_t func, void* ud);
-
+typedef int64_t ax_encript_block_t;
+typedef ax_encript_block_t* ax_encript_block_p;
+void ax_encript_do(ax_encript_block_p in, ax_encript_block_p pwd, ax_encript_block_p out, ax_encript_type_t type,ax_encript_func_t func);
 #endif /* defined(__SFBox__ax_encript__) */
