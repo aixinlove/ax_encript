@@ -22,7 +22,7 @@ typedef enum{
 	ax_encript_func_xxtea=0x0004,
 	ax_encript_func_rc4=0x0005,
 } ax_encript_func_t;
-typedef int64_t ax_encript_block_t;
+typedef uint64_t ax_encript_block_t;
 typedef ax_encript_block_t* ax_encript_block_p;
 void ax_encript_do(ax_encript_block_p in, ax_encript_block_p pwd, ax_encript_block_p out, ax_encript_type_t type,ax_encript_func_t func);
 #endif /* defined(__SFBox__ax_encript__) */
