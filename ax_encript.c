@@ -165,6 +165,7 @@ void ax_encript_xxtea_dec(ax_encript_block_p in, ax_encript_block_p pwd, ax_encr
     } while ((sum -= DELTA) != 0);
     memcpy(out, v, sizeof(*out));
 }
+
 void ax_encript_do(ax_encript_block_p in, ax_encript_block_p pwd, ax_encript_block_p out, ax_encript_type_t type,ax_encript_func_t func){
 	switch(func){
 		case ax_encript_func_xor:{
